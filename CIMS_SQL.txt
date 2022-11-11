@@ -1,0 +1,28 @@
+create table Crime(
+	crimeId int Primary Key auto_increment,
+	Cdate date,
+	cplace varchar(20),
+	Crime_name varchar(20),
+	Victims varchar(20),
+	Crime_Description varchar(40),
+	suspects varchar(20),
+	Status varchar(20) default 'unresolve'
+	);
+
+create table Criminal(
+	Cid int primary key auto_increment,
+	Cname varchar(20),
+	Age int,
+	Gender varchar(10),
+	Address varchar(30),
+	Face_Id varchar(20),
+	Crime_Area varchar(20),
+	Crime_name varchar(20)
+	);
+
+create table Crime_Criminal(
+	crimeId int,
+	cid int,
+	foreign key(crimeId) references crime(crimeId),
+	foreign key (cid) references criminal(cid)
+	);
